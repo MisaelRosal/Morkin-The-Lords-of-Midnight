@@ -1,0 +1,311 @@
+Si eliges el Nivel 3, sinceramente yo no intentaría "adaptar el juego de mesa al ASCII". Intentaría construir un motor de Lords of Midnight inspirado en el juego original y usar las reglas del PDF como contenido.
+
+La clave es esta:
+
+No programes un juego. Programa un mundo que siga funcionando aunque el jugador no haga nada.
+
+Eso es exactamente lo que hace que Lords of Midnight sea especial.
+
+Arquitectura recomendada
+morkin_ascii/
+│
+├── main.py
+│
+├── engine/
+│   ├── game.py
+│   ├── time.py
+│   ├── events.py
+│   └── ai.py
+│
+├── world/
+│   ├── world_map.py
+│   ├── locations.py
+│   └── weather.py
+│
+├── characters/
+│   ├── hero.py
+│   ├── npc.py
+│   └── army.py
+│
+├── combat/
+│   ├── battle.py
+│   └── siege.py
+│
+├── quests/
+│   ├── missions.py
+│   └── story.py
+│
+├── data/
+│   ├── map.json
+│   ├── lords.json
+│   ├── armies.json
+│   └── events.json
+│
+└── saves/
+
+Fase 1: El mundo
+
+Primero construiría el mapa.
+
+Ejemplo:
+
+ 1 2 3 4 5 6 7
+
+A . . F . . M .
+B . W W W . . .
+C . W P W . K .
+D . . . . . . .
+E R . . T . . .
+
+P = jugador
+F = fortaleza
+K = ciudad
+R = ruinas
+M = montaña
+W = bosque
+T = templo
+
+
+Representado como:
+
+world = [
+    [".",".","F",".",".","M","."],
+    [".","W","W","W",".",".","."],
+    [".","W","P","W",".","K","."],
+]
+
+Fase 2: Ciclo de tiempo
+
+Cada turno avanza tiempo.
+
+turno += 1
+
+if turno % 10 == 0:
+    dia += 1
+
+
+Más avanzado:
+
+Hora 06:00 Amanecer
+Hora 12:00 Mediodía
+Hora 18:00 Atardecer
+Hora 22:00 Noche
+
+
+ASCII:
+
+Día 14
+Hora 21:00
+
+██████████░░░░░░░░░░
+Noche
+
+Fase 3: Personajes autónomos
+
+Aquí empieza la magia.
+
+class Lord:
+    def __init__(self,name):
+        self.name = name
+        self.location = None
+        self.goal = None
+
+
+Cada NPC actúa solo.
+
+for lord in lords:
+    lord.take_turn()
+
+
+Ejemplo:
+
+Turno 45
+
+Luxor marcha hacia la Fortaleza Norte.
+
+Turno 46
+
+Luxor recluta 30 guerreros.
+
+Turno 47
+
+Luxor continúa viajando.
+
+
+El jugador ni siquiera está presente.
+
+El mundo sigue vivo.
+
+Fase 4: Reclutamiento
+
+Las ciudades generan soldados.
+
+Ciudad Norte
+
+Población: 500
+Lealtad: 70%
+
+
+Cada día:
+
+nuevos = random.randint(5,20)
+
+Fase 5: Ejércitos
+
+Un ejército es una entidad independiente.
+
+class Army:
+
+    soldiers = 500
+    morale = 80
+    food = 200
+
+
+Visualización:
+
+Ejército de Luxor
+
+█████████████████ 500 soldados
+
+Moral: 80
+Comida: 200
+
+Fase 6: IA estratégica
+
+No una IA compleja.
+
+Solo prioridades.
+
+if enemy_near:
+    attack()
+
+elif fortress_near:
+    capture()
+
+elif city_near:
+    recruit()
+
+else:
+    explore()
+
+
+Con eso ya parece inteligente.
+
+Fase 7: Eventos globales
+
+El mundo cambia sin intervención del jugador.
+
+Ejemplo:
+
+EVENTS = [
+    "Invierno severo",
+    "Plaga",
+    "Invasión",
+    "Traición",
+    "Tierra sagrada descubierta"
+]
+
+
+Salida:
+
+=================================
+EVENTO GLOBAL
+=================================
+
+Una plaga afecta las ciudades
+del Norte.
+
+Población -20%
+
+Fase 8: Historia dinámica
+
+No escribir una historia fija.
+
+Crear sistemas que generen historia.
+
+Ejemplo:
+
+if king_dead:
+    trigger_civil_war()
+
+
+o
+
+if fortress_fallen:
+    open_new_region()
+
+
+Entonces cada partida cuenta una historia distinta.
+
+Fase 9: Sistema de visión
+
+Una de las mecánicas más icónicas de Lords of Midnight.
+
+       M
+    M  M  M
+
+ F  F  P  F
+
+    W  W  W
+
+
+Desde la posición del jugador solo ve ciertas celdas.
+
+visible_tiles()
+
+
+No todo el mapa.
+
+Fase 10: Información incompleta
+
+Mucho más interesante.
+
+En lugar de:
+
+Ejército enemigo:
+738 soldados
+
+
+Mostrar:
+
+Se observan numerosos guerreros.
+
+
+o
+
+Una pequeña fuerza patrulla el camino.
+
+
+Eso genera incertidumbre.
+
+Lo que yo haría realmente
+
+MVP 1 (2 semanas)
+
+✅ mapa ASCII
+ ✅ movimiento
+ ✅ ciclo día/noche
+ ✅ 10 NPCs autónomos
+ ✅ reclutamiento
+ ✅ combate simple
+
+MVP 2 (1 mes)
+
+✅ ciudades
+ ✅ fortalezas
+ ✅ ejércitos
+ ✅ IA estratégica
+ ✅ eventos globales
+
+Versión Alpha (2-3 meses)
+
+✅ mundo persistente
+ ✅ guardado de partidas
+ ✅ 50+ NPCs
+ ✅ 20+ ciudades
+ ✅ 100+ eventos narrativos
+ ✅ historia emergente
+
+Y algo importante: para un proyecto así, Python + terminal ASCII es una excelente elección. Con curses (Linux) o textual (multiplataforma) podrías lograr una interfaz 
+sorprendentemente buena sin tocar gráficos, y concentrar el esfuerzo donde realmente importa: simulación, IA, 
+facciones, política, exploración y narrativa emergente, que son justamente los elementos que hacen memorable a Lords of Midnight.
