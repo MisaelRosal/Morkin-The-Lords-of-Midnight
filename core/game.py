@@ -4,7 +4,7 @@ from entities.player import Player
 from entities.enemy import Enemy
 from world.map import GameMap
 from systems.combat import CombatSystem
-from core.commands import move, show_status, show_help, DIRECTIONS
+from core.commands import move, show_help, DIRECTIONS
 from core.character_creation import create_character, print_stats
 from systems.exploration import explore
 
