@@ -28,33 +28,37 @@ class Game:
         combat = CombatSystem(self.player, self.current_enemy)
         combat.start()
         print(combat.get_combat_log())
+        combat.log.clear()
+
+        if not combat.player_turn:
+            print(f"\n{self.current_enemy.name} ataca primero!")
+            combat.enemy_attack()
+            print(combat.get_combat_log())
+            combat.log.clear()
+            combat.player_turn = True
 
         while combat.combat_active:
             command = input("\n> [combate] ").strip().lower()
 
             if command == "atacar":
-                if combat.player_turn:
-                    combat.player_attack()
-                    print(combat.get_combat_log()[-3:])
-                    combat.log.clear()
+                combat.player_attack()
+                print(combat.get_combat_log())
+                combat.log.clear()
 
-                    if combat.combat_active:
-                        combat.enemy_attack()
-                        print(combat.get_combat_log()[-3:])
-                        combat.log.clear()
-                else:
-                    print("No es tu turno.")
+                if combat.combat_active:
+                    combat.enemy_attack()
+                    print(combat.get_combat_log())
+                    combat.log.clear()
 
             elif command == "huir":
-                if combat.player_turn:
-                    combat.player_flee()
-                    print(combat.get_combat_log()[-3:])
-                    combat.log.clear()
+                combat.player_flee()
+                print(combat.get_combat_log())
+                combat.log.clear()
 
-                    if combat.combat_active:
-                        combat.enemy_attack()
-                        print(combat.get_combat_log()[-3:])
-                        combat.log.clear()
+                if combat.combat_active:
+                    combat.enemy_attack()
+                    print(combat.get_combat_log())
+                    combat.log.clear()
 
             elif command == "estado":
                 print_stats(self.player)
