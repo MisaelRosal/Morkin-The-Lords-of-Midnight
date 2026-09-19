@@ -1,0 +1,889 @@
+[
+  {
+    "id": "bone_collector",
+    "name": "Bone Collector",
+    "type": "Beast of Death",
+    "hp": 45,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 30,
+    "xp": 4
+  },
+  {
+    "id": "fearhunter",
+    "name": "Fearhunter",
+    "type": "Beast of Death",
+    "hp": 42,
+    "melee": 60,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 40,
+    "xp": 4
+  },
+  {
+    "id": "flesheater",
+    "name": "Flesheater",
+    "type": "Beast of Death",
+    "hp": 42,
+    "melee": 65,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 35,
+    "xp": 4
+  },
+  {
+    "id": "frostbringer",
+    "name": "Frostbringer",
+    "type": "Beast of Death",
+    "hp": 45,
+    "melee": 55,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 40,
+    "xp": 4
+  },
+  {
+    "id": "frozen_aberration",
+    "name": "Frozen Aberration",
+    "type": "Beast of Death",
+    "hp": 38,
+    "melee": 55,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 40,
+    "xp": 3
+  },
+  {
+    "id": "whispering_slave",
+    "name": "Whispering Slave",
+    "type": "Beast of Death",
+    "hp": 36,
+    "melee": 58,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 60,
+    "xp": 3
+  },
+  {
+    "id": "despair_spider",
+    "name": "Despair Spider",
+    "type": "Monster",
+    "hp": 20,
+    "melee": 50,
+    "defence": 30,
+    "defence_value": 15,
+    "perception": 50,
+    "xp": 2
+  },
+  {
+    "id": "dire_wolf",
+    "name": "Dire Wolf",
+    "type": "Animal",
+    "hp": 32,
+    "melee": 60,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 70,
+    "xp": 3
+  },
+  {
+    "id": "doomdark_assassin",
+    "name": "Doomdark's Assassin",
+    "type": "Humanoid",
+    "hp": 30,
+    "melee": 70,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 70,
+    "xp": 2
+  },
+  {
+    "id": "doomdark_fanatic",
+    "name": "Doomdark's Fanatic",
+    "type": "Humanoid",
+    "hp": 16,
+    "melee": 45,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 45,
+    "xp": 1
+  },
+  {
+    "id": "doomdark_rider",
+    "name": "Doomdark's Rider",
+    "type": "Humanoid",
+    "hp": 40,
+    "melee": 70,
+    "defence": 65,
+    "defence_value": 32,
+    "absorption": 2,
+    "perception": 65,
+    "xp": 3
+  },
+  {
+    "id": "doomdark_scout",
+    "name": "Doomdark's Scout",
+    "type": "Humanoid",
+    "hp": 25,
+    "melee": 50,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 65,
+    "xp": 2
+  },
+  {
+    "id": "doomdark_warrior",
+    "name": "Doomdark's Warrior",
+    "type": "Humanoid",
+    "hp": 25,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "absorption": 1,
+    "perception": 40,
+    "xp": 2
+  },
+  {
+    "id": "doomdark_wolfmaster",
+    "name": "Doomdark's Wolfmaster",
+    "type": "Humanoid",
+    "hp": 28,
+    "melee": 50,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 50,
+    "xp": 2
+  },
+  {
+    "id": "dragon",
+    "name": "Dragon",
+    "type": "Animal",
+    "hp": 55,
+    "melee": 80,
+    "defence": 80,
+    "defence_value": 40,
+    "perception": 70,
+    "xp": 4
+  },
+  {
+    "id": "dread_widow",
+    "name": "Dread Widow",
+    "type": "Monster",
+    "hp": 32,
+    "melee": 60,
+    "defence": 36,
+    "defence_value": 18,
+    "perception": 60,
+    "xp": 3
+  },
+  {
+    "id": "frostborne_colossus",
+    "name": "Frostborne Colossus",
+    "type": "Monster",
+    "hp": 60,
+    "melee": 40,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 40,
+    "xp": 5
+  },
+  {
+    "id": "frost_rat",
+    "name": "Frost Rat",
+    "type": "Monster",
+    "hp": 10,
+    "melee": 45,
+    "defence": 30,
+    "defence_value": 15,
+    "perception": 40,
+    "xp": 1
+  },
+  {
+    "id": "hound_of_doomdark",
+    "name": "Hound of Doomdark",
+    "type": "Animal",
+    "hp": 24,
+    "melee": 55,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 80,
+    "xp": 2
+  },
+  {
+    "id": "ice_troll",
+    "name": "Ice Troll",
+    "type": "Beast",
+    "hp": 35,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 50,
+    "xp": 3
+  },
+  {
+    "id": "ice_troll_beastmaster",
+    "name": "Ice Troll Beastmaster",
+    "type": "Beast",
+    "hp": 29,
+    "melee": 50,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 50,
+    "xp": 2
+  },
+  {
+    "id": "ice_troll_chieftain",
+    "name": "Ice Troll Chieftain",
+    "type": "Beast",
+    "hp": 42,
+    "melee": 70,
+    "defence": 70,
+    "defence_value": 35,
+    "absorption": 1,
+    "perception": 50,
+    "xp": 4
+  },
+  {
+    "id": "midnight_lion",
+    "name": "Midnight Lion",
+    "type": "Animal",
+    "hp": 29,
+    "melee": 60,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 50,
+    "xp": 2
+  },
+  {
+    "id": "mosqkrin",
+    "name": "Mosqkrin",
+    "type": "Monster",
+    "hp": 10,
+    "melee": 45,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 30,
+    "xp": 1
+  },
+  {
+    "id": "skulkrin",
+    "name": "Skulkrin",
+    "type": "Humanoid",
+    "hp": 20,
+    "melee": 55,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 60,
+    "xp": 2
+  },
+  {
+    "id": "skulkrin_herbmaster",
+    "name": "Skulkrin Herbmaster",
+    "type": "Humanoid",
+    "hp": 18,
+    "melee": 50,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 50,
+    "xp": 1
+  },
+  {
+    "id": "skulkrin_hunter",
+    "name": "Skulkrin Hunter",
+    "type": "Humanoid",
+    "hp": 25,
+    "melee": 55,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 50,
+    "xp": 2
+  },
+  {
+    "id": "skulkrin_patriarch",
+    "name": "Skulkrin Patriarch",
+    "type": "Humanoid",
+    "hp": 32,
+    "melee": 60,
+    "defence": 50,
+    "defence_value": 25,
+    "absorption": 1,
+    "perception": 50,
+    "xp": 3
+  },
+  {
+    "id": "frostling",
+    "name": "Frostling",
+    "type": "Monster",
+    "hp": 5,
+    "melee": 45,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 40,
+    "xp": 0
+  },
+  {
+    "id": "targ",
+    "name": "Targ",
+    "type": "Humanoid",
+    "hp": 36,
+    "melee": 50,
+    "defence": 60,
+    "defence_value": 30,
+    "absorption": 1,
+    "perception": 40,
+    "xp": 3
+  },
+  {
+    "id": "targ_chieftain",
+    "name": "Targ Chieftain",
+    "type": "Humanoid",
+    "hp": 45,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "absorption": 1,
+    "perception": 40,
+    "xp": 3
+  },
+  {
+    "id": "tomb_robber",
+    "name": "Tomb Robber",
+    "type": "Humanoid",
+    "hp": 20,
+    "melee": 50,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 40,
+    "xp": 2
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "type": "Animal",
+    "hp": 20,
+    "melee": 50,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 70,
+    "xp": 2
+  },
+
+  // ÚNICOS
+
+  {
+    "id": "bloodfang",
+    "name": "Bloodfang",
+    "type": "Unique Animal",
+    "hp": 38,
+    "melee": 65,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 70,
+    "xp": 3
+  },
+  {
+    "id": "corruptor_of_souls",
+    "name": "Corruptor of Souls",
+    "type": "Unique Humanoid",
+    "hp": 39,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 35,
+    "xp": 2
+  },
+  {
+    "id": "eryndor",
+    "name": "Eryndor",
+    "type": "Spectral Guardian",
+    "hp": 38,
+    "melee": 70,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 50,
+    "xp": 3
+  },
+  {
+    "id": "gavrin_the_haggard",
+    "name": "Gavrin the Haggard",
+    "type": "Unique Humanoid",
+    "hp": 35,
+    "melee": 60,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 40,
+    "xp": 3
+  },
+  {
+    "id": "khalgul_the_warped",
+    "name": "Khalgul the Warped",
+    "type": "Unique Humanoid",
+    "hp": 36,
+    "melee": 60,
+    "defence": 50,
+    "defence_value": 25,
+    "perception": 40,
+    "xp": 3,
+    "special": "two_attacks_per_turn"
+  },
+  {
+    "id": "maldrak_the_fanatic",
+    "name": "Maldrak the Fanatic",
+    "type": "Unique Humanoid",
+    "hp": 30,
+    "melee": 50,
+    "defence": 50,
+    "defence_value": 25,
+    "absorption": 1,
+    "perception": 45,
+    "xp": 2
+  },
+  {
+    "id": "morgrath_the_icelord",
+    "name": "Morgrath the Icelord",
+    "type": "Unique Humanoid",
+    "hp": 65,
+    "melee": 80,
+    "defence": 80,
+    "defence_value": 40,
+    "absorption": 3,
+    "perception": 70,
+    "xp": 5
+  },
+  {
+    "id": "myrvalis",
+    "name": "Myrvalis the Mindbender",
+    "type": "Unique Monster",
+    "hp": 50,
+    "melee": 70,
+    "defence": 70,
+    "defence_value": 35,
+    "absorption": 2,
+    "perception": 60,
+    "xp": 4
+  },
+  {
+    "id": "snowcrag",
+    "name": "Snowcrag",
+    "type": "Unique Beast",
+    "hp": 30,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "perception": 55,
+    "xp": 2
+  },
+  {
+    "id": "thorne_blackcloak",
+    "name": "Thorne Blackcloak",
+    "type": "Unique Humanoid",
+    "hp": 32,
+    "melee": 70,
+    "defence": 50,
+    "defence_value": 25,
+    "absorption": 1,
+    "perception": 40,
+    "xp": 3
+  },
+  {
+    "id": "thronecrusher",
+    "name": "Thronecrusher",
+    "type": "Unique Beast",
+    "hp": 52,
+    "melee": 70,
+    "defence": 70,
+    "defence_value": 35,
+    "absorption": 1,
+    "perception": 50,
+    "xp": 4
+  },
+  {
+    "id": "tyrfang",
+    "name": "Tyrfang the Black Dragon",
+    "type": "Unique Dragon",
+    "hp": 50,
+    "melee": 80,
+    "defence": 80,
+    "defence_value": 40,
+    "perception": 70,
+    "xp": 4
+  },
+  {
+    "id": "varantarg",
+    "name": "Varantarg the Vengeful",
+    "type": "Undead",
+    "hp": 42,
+    "melee": 80,
+    "defence": 40,
+    "defence_value": 20,
+    "perception": 40,
+    "xp": 3
+  },
+  {
+    "id": "zharakrin",
+    "name": "Zharakrin the Skulkrin",
+    "type": "Unique Humanoid",
+    "hp": 49,
+    "melee": 60,
+    "defence": 60,
+    "defence_value": 30,
+    "absorption": 2,
+    "perception": 50,
+    "xp": 3
+  }
+
+  [
+  {
+    "id": "bandit",
+    "name": "Bandit",
+    "type": "Humanoid",
+    "description": "Marauder employed by Doomdark to spread chaos and attack travellers and settlements.",
+    "stats": {
+      "hp": 18,
+      "melee": 50,
+      "defence": 40,
+      "defence_value": 20,
+      "perception": 40,
+      "xp": 1
+    },
+    "attacks": [
+      {
+        "name": "Normal Hit",
+        "damage": "D6"
+      }
+    ],
+    "critical_hit": {
+      "effect": "6 damage"
+    },
+    "fumble": {
+      "effect": "Loses next turn"
+    },
+    "loot": [
+      {
+        "roll": "1-3",
+        "item": "Bandit Sash"
+      },
+      {
+        "roll": "4-6",
+        "item": "4 Lockpicks"
+      }
+    ]
+  },
+  {
+    "id": "bandit_chief",
+    "name": "Bandit Chief",
+    "type": "Humanoid",
+    "description": "Leader of a band of marauders sworn to Doomdark.",
+    "stats": {
+      "hp": 32,
+      "melee": 60,
+      "defence": 50,
+      "defence_value": 25,
+      "absorption": 1,
+      "perception": 40,
+      "xp": 3
+    },
+    "attacks": [
+      {
+        "name": "Normal Hit",
+        "damage": "D6+1"
+      }
+    ],
+    "critical_hit": {
+      "effect": "6 damage"
+    },
+    "fumble": {
+      "effect": "Loses next turn"
+    },
+    "loot": [
+      {
+        "roll": "1-2",
+        "item": "Bandit Sash"
+      },
+      {
+        "roll": "3-4",
+        "item": "4 Lockpicks"
+      },
+      {
+        "roll": "5-6",
+        "item": "D6 Silver Coins"
+      }
+    ]
+  },
+  {
+    "id": "bloodwing",
+    "name": "Bloodwing",
+    "type": "Monster",
+    "description": "Huge bat-like creature with icy claws and wings that attacks in packs.",
+    "stats": {
+      "hp": 16,
+      "melee": 45,
+      "defence": 30,
+      "defence_value": 15,
+      "perception": 40,
+      "xp": 1
+    },
+    "special_attacks": [
+      {
+        "roll": "1-4",
+        "name": "Bite",
+        "damage": "D6"
+      },
+      {
+        "roll": "5",
+        "name": "Frostbite Dive",
+        "damage": "D6+2"
+      },
+      {
+        "roll": "6",
+        "name": "Icy Wing",
+        "damage": "D6",
+        "effect": [
+          "knockback",
+          "chilled",
+          "cannot_attack_next_turn"
+        ]
+      }
+    ],
+    "critical_hit": {
+      "effect": "6 damage"
+    },
+    "fumble": {
+      "effect": [
+        "loses_next_turn",
+        "-10_defence_value_next_turn"
+      ]
+    },
+    "loot": [
+      {
+        "item": "Bloodwing Wing"
+      }
+    ]
+  }
+]
+
+
+Reglas especiales:
+
+{
+  "enemy_attack_tables": true,
+  "enemy_fumble_effects": true,
+  "enemy_critical_effects": true,
+  "enemy_loot_tables": true,
+  "enemy_special_attacks": true
+}
+``
+
+
+Con los datos que hemos extraído hasta ahora, no todos los enemigos usan las 5 mecánicas avanzadas.
+
+Yo los dividiría así:
+
+Nivel 1 - Enemigos básicos
+
+Solo usan:
+
+{
+  "hp": 0,
+  "melee": 0,
+  "defence": 0,
+  "xp": 0
+}
+
+
+Ejemplos:
+
+Wolf
+Frost Rat
+Mosqkrin
+Skulkrin
+Doomdark Fanatic
+Midnight Lion
+Ice Troll
+Targ
+
+
+Para estos basta:
+
+enemy.attack()
+enemy.take_damage()
+
+Nivel 2 - Enemigos con Loot Tables
+
+Usan:
+
+{
+  "enemy_loot_tables": true
+}
+
+
+Confirmados:
+
+Bandit
+Bandit Chief
+Bloodwing
+
+
+Ejemplo:
+
+loot_roll = d6()
+
+if loot_roll <= 3:
+    give("Bandit Sash")
+else:
+    give("Lockpicks")
+
+Nivel 3 - Enemigos con Critical/Fumble propios
+
+Usan:
+
+{
+  "enemy_critical_effects": true,
+  "enemy_fumble_effects": true
+}
+
+
+Confirmados:
+
+Bandit
+Bandit Chief
+Bloodwing
+
+
+Porque el bestiario muestra explícitamente:
+
+Critical Hit
+Fumble
+
+
+para estas criaturas.
+
+Nivel 4 - Enemigos con tablas de ataques
+
+Usan:
+
+{
+  "enemy_attack_tables": true
+}
+
+
+Confirmado:
+
+Bloodwing
+
+
+Ejemplo:
+
+1-4 Bite
+5 Frostbite Dive
+6 Icy Wing
+
+
+Código:
+
+roll = random.randint(1,6)
+
+
+y seleccionar ataque.
+
+Nivel 5 - Enemigos con ataques especiales
+
+Usan:
+
+{
+  "enemy_special_attacks": true
+}
+
+
+Confirmado:
+
+Bloodwing
+
+
+porque tiene:
+
+Icy Wing
+
+Knockback
+Chilled
+Cannot attack next turn
+
+Enemigos únicos que probablemente deberían usar tablas
+
+Aunque aún no tenemos sus fichas completas, yo marcaría para implementar después:
+
+Tyrfang the Black Dragon
+Myrvalis the Mindbender
+Morgrath the Icelord
+Bloodfang
+Snowcrag
+Thronecrusher
+Zharakrin
+Varantarg
+Corruptor of Souls
+Khalgul the Warped
+
+
+Especialmente:
+
+Dragon
+Tyrfang
+Myrvalis
+
+
+porque suelen ser encuentros de jefe.
+
+Clasificación para tu motor
+BASIC_ENEMIES
+BASIC_ENEMIES = [
+    "wolf",
+    "frost_rat",
+    "mosqkrin",
+    "skulkrin",
+    "doomdark_fanatic",
+    "ice_troll",
+    "midnight_lion",
+    "targ"
+]
+
+LOOT_TABLE_ENEMIES
+LOOT_TABLE_ENEMIES = [
+    "bandit",
+    "bandit_chief",
+    "bloodwing"
+]
+
+ATTACK_TABLE_ENEMIES
+ATTACK_TABLE_ENEMIES = [
+    "bloodwing"
+]
+
+SPECIAL_ATTACK_ENEMIES
+SPECIAL_ATTACK_ENEMIES = [
+    "bloodwing"
+]
+
+BOSS_ENEMIES
+BOSS_ENEMIES = [
+    "dragon",
+    "tyrfang",
+    "myrvalis",
+    "morgrath_the_icelord",
+    "bloodfang",
+    "thronecrusher",
+    "zharakrin"
+]
+
+
+Para la versión 1.0 de tu RPG ASCII, yo implementaría el sistema avanzado completo únicamente para:
+
+Bandit
+Bandit Chief
+Bloodwing
+Dragon
+Tyrfang
+Myrvalis
+
+
+y dejaría el resto usando el sistema simple de combate. Eso te cubriría aproximadamente el 90% de los encuentros del juego sin complicar innecesariamente el motor.

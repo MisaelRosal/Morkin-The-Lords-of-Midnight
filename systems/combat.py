@@ -1,5 +1,6 @@
 import random
 import re
+import os
 
 def roll_dice(notation):
     notation = notation.lower().strip()
@@ -65,6 +66,26 @@ def fumble_table():
     }
     return result, effects[result]
 
+def apply_status_effect(target, effect):
+    if effect == "burn":
+        target.add_status("burning")
+        return "Quemadura aplicada"
+    elif effect == "freeze":
+        target.add_status("frozen")
+        return "Congelado"
+    elif effect == "chilled":
+        target.add_status("chilled")
+        return "Enfriado (-20 Melee proximo turno)"
+    elif effect == "knockback":
+        return "Retrocedido"
+    elif effect == "stun":
+        target.add_status("stunned")
+        return "Aturdido"
+    elif effect == "poison":
+        target.add_status("poisoned")
+        return "Envenenado"
+    return None
+
 class CombatSystem:
     def __init__(self, player, enemy):
         self.player = player
@@ -75,6 +96,7 @@ class CombatSystem:
         self.enemy_initiative = 0
         self.player_turn = True
         self.combat_active = True
+        self.loot_filepath = os.path.join(os.path.dirname(__file__), "..", "data", "loot_tables.json")
 
     def log(self, message):
         self.combat_log.append(message)
@@ -82,8 +104,11 @@ class CombatSystem:
     def start(self):
         self.player_initiative = initiative_check()
         self.enemy_initiative = initiative_check()
-        self.log(f"--- INICIO DEL COMBATE ---")
+        self.log("--- INICIO DEL COMBATE ---")
         self.log(f"Enemigo: {self.enemy.name} ({self.enemy.health} HP)")
+        boss_marker = " [JEFE]" if self.enemy.is_boss else ""
+        unique_marker = " [UNICO]" if self.enemy.is_unique and not self.enemy.is_boss else ""
+        self.log(f"Tipo: {self.enemy.type}{boss_marker}{unique_marker}")
         self.log(f"Tu iniciativa: {self.player_initiative} | Enemigo: {self.enemy_initiative}")
         if self.player_initiative >= self.enemy_initiative:
             self.player_turn = True
@@ -95,6 +120,11 @@ class CombatSystem:
 
     def player_attack(self):
         melee = self.player.skills.get("melee", 0)
+
+        if self.player.has_status("chilled"):
+            melee -= 20
+            self.log("El frio reduce tu Melee en 20.")
+
         roll, success = check_skill(melee)
         self.log(f"--- Tu turno ---")
         self.log(f"Atacas con Melee ({melee}). Tirada: {roll}")
@@ -136,35 +166,58 @@ class CombatSystem:
 
     def enemy_attack(self):
         roll, success = check_skill(self.enemy.melee)
+
+        if self.enemy.has_status("chilled"):
+            roll += 20
+            self.log("El frio afecta al enemigo.")
+
         self.log(f"--- Turno de {self.enemy.name} ---")
         self.log(f"{self.enemy.name} ataca. Tirada: {roll}")
 
         if is_critical(roll):
             crit_id, crit_desc = critical_table()
             self.log(f"CRITICO enemigo! (tirada < 5)")
-            self.log(f"Efecto: {crit_desc[0]} - {crit_desc[1]}")
-            actual = self.player.take_damage(self.enemy.critical_damage)
+
+            if self.enemy.critical_effect:
+                self.log(f"Efecto especial: {self.enemy.critical_effect}")
+                actual = self.player.take_damage(self.enemy.critical_damage)
+            else:
+                self.log(f"Efecto: {crit_desc[0]} - {crit_desc[1]}")
+                actual = self.player.take_damage(self.enemy.critical_damage)
+
             self.log(f"Danio critico a ti: {actual} HP")
             if not self.player.is_alive():
                 return self.defeat()
             return True
 
         if is_fumble(roll):
-            fumble_id, fumble_desc = fumble_table()
             self.log(f"PIFIA enemiga! (tirada = 100)")
-            self.log(f"Efecto: {fumble_desc[0]} - {fumble_desc[1]}")
+            if self.enemy.fumble_effect:
+                self.log(f"Efecto: {self.enemy.fumble_effect}")
+            else:
+                fumble_id, fumble_desc = fumble_table()
+                self.log(f"Efecto: {fumble_desc[0]} - {fumble_desc[1]}")
             return True
 
         if not success:
             self.log(f"{self.enemy.name} falla el ataque.")
             return True
 
-        damage = calculate_damage(self.enemy.damage)
+        attack = self.enemy.get_attack()
+        damage_str = attack.get("damage", self.enemy.damage)
+        damage = calculate_damage(damage_str)
         defence_value = self.player.get_defence_value()
         final_damage = apply_armor(damage, defence_value)
+        self.log(f"Ataque: {attack['name']}")
         self.log(f"Danio base: {damage} | Tu armadura: {defence_value} | Final: {final_damage}")
         actual = self.player.take_damage(final_damage)
         self.log(f"Recibes {actual} HP de danio. (HP: {self.player.hp['current']}/{self.player.hp['max']})")
+
+        effect = attack.get("effect")
+        if effect:
+            result = apply_status_effect(self.player, effect)
+            if result:
+                self.log(f"Efecto: {result}")
 
         if not self.player.is_alive():
             return self.defeat()
@@ -187,15 +240,24 @@ class CombatSystem:
     def victory(self):
         self.combat_active = False
         self.log("")
-        self.log(f"=== VICTORIA ===")
+        self.log("=== VICTORIA ===")
         self.log(f"Has derrotado a {self.enemy.name}!")
         self.log(f"Recompensa: {self.enemy.xp} XP")
+
+        loot = self.enemy.roll_loot(self.loot_filepath)
+        if loot:
+            added = self.player.add_item(loot)
+            if added:
+                self.log(f"Botin: {loot}")
+            else:
+                self.log(f"Botin: {loot} (inventario lleno!)")
+
         return True
 
     def defeat(self):
         self.combat_active = False
         self.log("")
-        self.log(f"=== DERROTA ===")
+        self.log("=== DERROTA ===")
         self.log(f"Has sido derrotado por {self.enemy.name}.")
         return True
 

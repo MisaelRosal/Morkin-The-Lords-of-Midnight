@@ -1,0 +1,52 @@
+{
+  "wolf_loot": [
+    {"roll_min": 1, "roll_max": 3, "item": "Piel de lobo", "chance": 50},
+    {"roll_min": 4, "roll_max": 6, "item": "Colmillo", "chance": 30}
+  ],
+  "humanoid_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Ropa vieja", "chance": 40},
+    {"roll_min": 3, "roll_max": 4, "item": "Daga oxidada", "chance": 30},
+    {"roll_min": 5, "roll_max": 6, "item": "Monedas de plata x2", "chance": 60}
+  ],
+  "monster_loot": [
+    {"roll_min": 1, "roll_max": 3, "item": "Escamas", "chance": 40},
+    {"roll_min": 4, "roll_max": 6, "item": "Veneno de bestia", "chance": 20}
+  ],
+  "troll_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Piel de troll", "chance": 30},
+    {"roll_min": 3, "roll_max": 4, "item": "Hueso grueso", "chance": 40},
+    {"roll_min": 5, "roll_max": 6, "item": "Oro x3", "chance": 50}
+  ],
+  "beast_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Piel helada", "chance": 35},
+    {"roll_min": 3, "roll_max": 4, "item": "Garras de hielo", "chance": 25},
+    {"roll_min": 5, "roll_max": 6, "item": "Corazon de hielo", "chance": 15}
+  ],
+  "dragon_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Escama de dragon", "chance": 60},
+    {"roll_min": 3, "roll_max": 4, "item": "Colmillo de dragon", "chance": 40},
+    {"roll_min": 5, "roll_max": 6, "item": "Oro x10", "chance": 80}
+  ],
+  "bandit_loot": [
+    {"roll_min": 1, "roll_max": 3, "item": "Banda de bandido", "chance": 50},
+    {"roll_min": 4, "roll_max": 6, "item": "Ganzuas x4", "chance": 40}
+  ],
+  "bandit_chief_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Banda de bandido", "chance": 40},
+    {"roll_min": 3, "roll_max": 4, "item": "Ganzuas x4", "chance": 50},
+    {"roll_min": 5, "roll_max": 6, "item": "Monedas de plata xD6", "chance": 70}
+  ],
+  "bloodwing_loot": [
+    {"roll_min": 1, "roll_max": 6, "item": "Ala de Bloodwing", "chance": 60}
+  ],
+  "unique_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Artefacto unico", "chance": 30},
+    {"roll_min": 3, "roll_max": 4, "item": "Oro x5", "chance": 60},
+    {"roll_min": 5, "roll_max": 6, "item": "Pocion rara", "chance": 40}
+  ],
+  "boss_loot": [
+    {"roll_min": 1, "roll_max": 2, "item": "Arma legendaria", "chance": 25},
+    {"roll_min": 3, "roll_max": 4, "item": "Armadura legendaria", "chance": 20},
+    {"roll_min": 5, "roll_max": 6, "item": "Oro x20", "chance": 80}
+  ]
+}
