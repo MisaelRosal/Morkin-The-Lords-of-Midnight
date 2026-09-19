@@ -1,0 +1,481 @@
+combat_rules.txt
+
+=========================================
+MORKIN ASCII ENGINE
+COMBAT RULES v1.0
+=========================================
+
+-----------------------------------------
+1. DADOS DEL SISTEMA
+-----------------------------------------
+
+Todas las habilidades utilizan:
+
+1D100
+
+Regla general:
+
+Resultado <= Habilidad
+= ÉXITO
+
+Resultado > Habilidad
+= FALLO
+
+Ejemplo:
+
+Melee = 60
+
+Tirada = 42
+
+42 <= 60
+
+Resultado:
+ÉXITO
+
+-----------------------------------------
+2. CRÍTICOS
+-----------------------------------------
+
+Un crítico ocurre cuando:
+
+1D100 < 5
+
+Valores:
+
+1
+2
+3
+4
+
+Efectos:
+
+- El ataque impacta automáticamente
+- Se aplica tabla de crítico
+- El personaje gana +1 en la habilidad utilizada
+
+-----------------------------------------
+3. PIFIAS
+-----------------------------------------
+
+Una pifia ocurre cuando:
+
+1D100 = 100
+
+Se aplica tabla de pifias.
+
+-----------------------------------------
+4. ATRIBUTOS DE COMBATE
+-----------------------------------------
+
+HP
+Puntos de vida.
+
+Melee
+Capacidad de ataque.
+
+Defence
+Capacidad defensiva.
+
+Defence Value (DV)
+
+DV = Defence / 2
+
+Redondeado hacia abajo.
+
+Endurance
+
+Resistencia física.
+
+Mental Toughness
+
+Resistencia mental.
+
+Absorption Value (AV)
+
+Reducción de daño por armadura.
+
+-----------------------------------------
+5. INICIATIVA
+-----------------------------------------
+
+Al inicio del combate:
+
+Cada participante tira:
+
+1D10 + DEX_BONUS
+
+El valor más alto actúa primero.
+
+En caso de empate:
+
+1. Mayor DEX.
+2. Si persiste:
+   Tirar nuevamente.
+
+Orden de combate:
+
+Combatiente con iniciativa más alta
+↓
+Combatiente con iniciativa siguiente
+↓
+Hasta finalizar todos los participantes
+
+Luego comienza una nueva ronda.
+
+-----------------------------------------
+6. ESTRUCTURA DE RONDA
+-----------------------------------------
+
+Inicio de ronda
+
+↓
+
+Comprobación de estados
+
+↓
+
+Acción del personaje
+
+↓
+
+Resolución
+
+↓
+
+Fin de turno
+
+↓
+
+Siguiente combatiente
+
+-----------------------------------------
+7. ACCIONES POR TURNO
+-----------------------------------------
+
+Cada personaje dispone de:
+
+1 Acción Principal
+
+Puede elegir:
+
+ATACAR
+
+MOVERSE
+
+USAR OBJETO
+
+CURARSE
+
+HUIR
+
+CAMBIAR ARMA
+
+ESPERAR
+
+-----------------------------------------
+8. ATAQUE
+-----------------------------------------
+
+Paso 1
+
+Tirar:
+
+1D100
+
+Paso 2
+
+Comparar con Melee.
+
+Si:
+
+Resultado <= Melee
+
+El ataque impacta.
+
+Si:
+
+Resultado > Melee
+
+El ataque falla.
+
+-----------------------------------------
+9. DAÑO
+-----------------------------------------
+
+Cada arma posee daño propio.
+
+Ejemplos:
+
+D6
+D6+1
+D6+2
+D10
+D10+2
+
+Ejemplo:
+
+Espada de hierro
+
+Daño:
+
+D6 + 2
+
+Tirada:
+
+5
+
+Daño total:
+
+7
+
+-----------------------------------------
+10. ARMADURA
+-----------------------------------------
+
+Daño final:
+
+Daño - AV
+
+Ejemplo:
+
+Daño recibido = 8
+
+AV = 2
+
+Resultado final = 6
+
+Los valores negativos se convierten en 0.
+
+-----------------------------------------
+11. MUERTE
+-----------------------------------------
+
+Si:
+
+HP <= 0
+
+Resultado:
+
+Muerto
+
+Fin de combate para ese objetivo.
+
+-----------------------------------------
+12. HERIDAS GRAVES
+-----------------------------------------
+
+Si:
+
+HP < 10
+
+El personaje se considera gravemente herido.
+
+Consecuencias:
+
+- Pierde montura
+- Puede activarse narrativa especial
+- Riesgo elevado de muerte
+
+-----------------------------------------
+13. TABLA DE CRÍTICOS
+-----------------------------------------
+
+Cuando ocurre un crítico:
+
+Tirar:
+
+1D6
+
+1
+Golpe preciso.
+Daño máximo.
+
+2
+Golpe brutal.
+Daño máximo +1.
+
+3
+Aturdimiento.
+Daño máximo + estado Stunned.
+
+4
+Golpe devastador.
+Daño máximo +2.
+
+5
+Frenesí.
+Ataque adicional.
+
+6
+Muerte instantánea.
+
+(Solo si el objetivo no es inmune.)
+
+-----------------------------------------
+14. TABLA DE PIFIAS
+-----------------------------------------
+
+Cuando ocurre una pifia:
+
+Tirar:
+
+1D6
+
+1
+El ataque falla.
+
+2
+-20 Melee hasta siguiente turno.
+
+3
+Pierde próximo turno.
+
+4
+Golpea aliado cercano.
+
+5
+Recibe D6-2 de daño.
+
+6
+Recibe D6 de daño.
+
+-----------------------------------------
+15. ESTADOS ALTERADOS
+-----------------------------------------
+
+POISONED
+
+Pierde 1 HP cada turno.
+
+BLEEDING
+
+Pierde 1 HP cada turno.
+Requiere tratamiento.
+
+STUNNED
+
+Pierde el siguiente turno.
+
+BLINDED
+
+Pierde el siguiente turno.
+
+FROZEN
+
+Pierde el siguiente turno.
+
+PARALYSED
+
+Pierde el siguiente turno.
+
+IMMOBILISED
+
+No puede moverse.
+
+SLOWED
+
+-20 Melee durante 1 turno.
+
+-----------------------------------------
+16. CURACIÓN
+-----------------------------------------
+
+FIRST AID
+
+Requiere:
+
+1 Bandage
+
+Éxito:
+
+D6 + 2 HP
+
+Crítico:
+
+D10 + 2 HP
+
+-----------------------------------------
+17. HUIDA
+-----------------------------------------
+
+Acción principal.
+
+Tirar:
+
+1D100
+
+Comparar contra Defence.
+
+Éxito:
+
+Escapa.
+
+Antes de huir:
+
+El enemigo realiza
+1 ataque gratuito.
+
+Fallo:
+
+Permanece en combate.
+
+-----------------------------------------
+18. IA DE ENEMIGOS
+-----------------------------------------
+
+Prioridad:
+
+1. Atacar enemigo más cercano.
+2. Atacar objetivo con menor HP.
+3. Perseguir si huye.
+4. Usar habilidad especial.
+5. Esperar.
+
+-----------------------------------------
+19. FIN DEL COMBATE
+-----------------------------------------
+
+El combate finaliza cuando:
+
+- Todos los enemigos mueren.
+- El jugador muere.
+- Todos los enemigos huyen.
+- El jugador escapa.
+
+-----------------------------------------
+20. RECOMPENSAS
+-----------------------------------------
+
+Victoria:
+
+XP del enemigo.
+
+Oro.
+
+Objetos.
+
+Botín especial.
+
+Actualización de misiones.
+
+=========================================
+FIN DEL DOCUMENTO
+=========================================
+
+estructuras importantes para definir:
+
+class Character:
+    hp: int
+    melee: int
+    defence: int
+    endurance: int
+    mental_toughness: int
+    absorption: int
+
+class Weapon:
+    name: str
+    damage: str
+
+class StatusEffect:
+    name: str
+    duration: int
