@@ -5,6 +5,7 @@ from entities.enemy import Enemy
 from world.map import GameMap
 from systems.combat import CombatSystem
 from core.commands import move, show_status, show_help, DIRECTIONS
+from core.character_creation import create_character, print_stats
 from systems.exploration import explore
 
 ENEMIES_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "enemies.json")
@@ -15,13 +16,6 @@ class Game:
         self.game_map = GameMap()
         self.current_enemy = None
         self.in_combat = False
-
-    def create_player(self, name):
-        self.player = Player(name, health=100, gold=0)
-        location = self.game_map.get_location(self.player.position)
-        print(f"\nBienvenido, {name}!")
-        print(f"Comienzas en {location.name}.")
-        print(f"{location.description}")
 
     def random_encounter(self):
         if random.randint(1, 100) <= 30:
@@ -63,7 +57,7 @@ class Game:
                         combat.log.clear()
 
             elif command == "estado":
-                print(show_status(self.player, self.game_map))
+                print_stats(self.player)
 
             elif command == "ayuda":
                 print("Combate: 'atacar' para atacar, 'huir' para escapar")
@@ -76,21 +70,25 @@ class Game:
             return False
 
         if self.current_enemy and not self.current_enemy.is_alive():
-            self.player.gold += random.randint(1, 5)
-            self.player.xp = getattr(self.player, 'xp', 0) + self.current_enemy.xp
+            self.player.silver += random.randint(1, 5)
+            self.player.xp += self.current_enemy.xp
 
         self.current_enemy = None
         self.in_combat = False
         return True
 
     def run(self):
-        print("=== Morkin: The Lords of Midnight ===")
+        print("=" * 45)
+        print("   MORKIN: THE LORDS OF MIDNIGHT")
+        print("=" * 45)
+        print()
         print("Escribe 'ayuda' para ver los comandos.\n")
 
-        name = input("Como se llama tu personaje? ").strip()
-        if not name:
-            name = "Heroe"
-        self.create_player(name)
+        self.player = create_character()
+
+        location = self.game_map.get_location(self.player.position)
+        print(f"\nComienzas en {location.name}.")
+        print(f"{location.description}")
 
         while True:
             command = input("\n> ").strip().lower()
@@ -104,7 +102,7 @@ class Game:
                 continue
 
             if command == "estado":
-                print(show_status(self.player, self.game_map))
+                print_stats(self.player)
                 continue
 
             if command in DIRECTIONS:

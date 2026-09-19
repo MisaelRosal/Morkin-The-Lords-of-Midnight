@@ -94,16 +94,20 @@ class CombatSystem:
         self.log("")
 
     def player_attack(self):
-        roll, success = check_skill(self.player.melee)
+        melee = self.player.skills.get("melee", 0)
+        roll, success = check_skill(melee)
         self.log(f"--- Tu turno ---")
-        self.log(f"Atacas con Melee ({self.player.melee}). Tirada: {roll}")
+        self.log(f"Atacas con Melee ({melee}). Tirada: {roll}")
 
         if is_critical(roll):
             crit_id, crit_desc = critical_table()
             self.log(f"CRITICO! (tirada < 5)")
             self.log(f"Efecto: {crit_desc[0]} - {crit_desc[1]}")
-            damage = self.enemy.take_damage(self.critical_damage)
-            self.log(f"Danio critico a {self.enemy.name}: {damage} HP")
+            weapon = self.player.equipment.get("weapon")
+            damage_str = weapon.get("damage", "1d6") if weapon else "1d6"
+            max_damage = roll_dice(damage_str)
+            actual = self.enemy.take_damage(max_damage)
+            self.log(f"Danio critico a {self.enemy.name}: {actual} HP")
             if not self.enemy.is_alive():
                 return self.victory()
             return True
@@ -118,7 +122,9 @@ class CombatSystem:
             self.log("El ataque falla.")
             return True
 
-        damage = calculate_damage(self.enemy.damage)
+        weapon = self.player.equipment.get("weapon")
+        damage_str = weapon.get("damage", "1d6") if weapon else "1d6"
+        damage = calculate_damage(damage_str)
         final_damage = apply_armor(damage, self.enemy.defense_value)
         self.log(f"Danio base: {damage} | Armadura: {self.enemy.defense_value} | Final: {final_damage}")
         actual = self.enemy.take_damage(final_damage)
@@ -154,10 +160,11 @@ class CombatSystem:
             return True
 
         damage = calculate_damage(self.enemy.damage)
-        final_damage = apply_armor(damage, self.player.defense_value)
-        self.log(f"Danio base: {damage} | Tu armadura: {self.player.defense_value} | Final: {final_damage}")
+        defence_value = self.player.get_defence_value()
+        final_damage = apply_armor(damage, defence_value)
+        self.log(f"Danio base: {damage} | Tu armadura: {defence_value} | Final: {final_damage}")
         actual = self.player.take_damage(final_damage)
-        self.log(f"Recibes {actual} HP de danio. (HP: {self.player.health}/{self.player.max_health})")
+        self.log(f"Recibes {actual} HP de danio. (HP: {self.player.hp['current']}/{self.player.hp['max']})")
 
         if not self.player.is_alive():
             return self.defeat()
@@ -166,7 +173,8 @@ class CombatSystem:
     def player_flee(self):
         self.log(f"--- Tu turno ---")
         self.log("Intentas huir...")
-        roll, success = check_skill(self.player.defense)
+        defence = self.player.skills.get("defence", 0)
+        roll, success = check_skill(defence)
         if success:
             self.log(f"Escapas del combate! (tirada: {roll})")
             self.combat_active = False

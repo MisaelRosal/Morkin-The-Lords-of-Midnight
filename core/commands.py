@@ -14,20 +14,6 @@ def move(player, game_map, direction):
     location = game_map.get_location(new_position)
     return True, f"Avanzas hacia el {direction}. Llegas a {location.name}."
 
-def show_status(player, game_map):
-    location = game_map.get_location(player.position)
-    inventory = ", ".join(player.inventory) if player.inventory else "Vacio"
-    status = ", ".join(player.status_effects) if player.status_effects else "Ninguno"
-    return (
-        f"=== {player.name} ===\n"
-        f"Ubicacion: {location.name}\n"
-        f"Salud: {player.health}/{player.max_health}\n"
-        f"Oro: {player.gold}\n"
-        f"Inventario: {inventory}\n"
-        f"Estado: {status}\n"
-        f"Melee: {player.melee} | Defensa: {player.defense} | AV: {player.absorption}"
-    )
-
 def show_help():
     return (
         "Comandos disponibles:\n"
@@ -37,8 +23,7 @@ def show_help():
         "  oeste    - Moverte al oeste\n"
         "  explorar - Explorar tu entorno\n"
         "  estado   - Ver tu estado\n"
-        "  atacar   - Atacar al enemigo\n"
-        "  huir     - Intentar huir del combate\n"
+        "  mapa     - Ver el mapa\n"
         "  ayuda    - Ver esta ayuda\n"
         "  salir    - Salir del juego"
     )
