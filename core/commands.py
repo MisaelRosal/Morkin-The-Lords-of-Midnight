@@ -30,6 +30,7 @@ def show_help():
         "  sur      - Moverte al sur\n"
         "  este     - Moverte al este\n"
         "  oeste    - Moverte al oeste\n"
+        "  explorar - Explorar tu entorno\n"
         "  estado   - Ver tu estado\n"
         "  ayuda    - Ver esta ayuda\n"
         "  salir    - Salir del juego"

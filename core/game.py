@@ -1,6 +1,7 @@
 from entities.player import Player
 from world.map import GameMap
 from core.commands import move, show_status, show_help, DIRECTIONS
+from systems.exploration import explore
 
 class Game:
     def __init__(self):
@@ -44,6 +45,10 @@ class Game:
                 if success:
                     location = self.game_map.get_location(self.player.position)
                     print(location.description)
+                continue
+
+            if command == "explorar":
+                print(explore(self.player))
                 continue
 
             print("Comando no reconocido. Escribe 'ayuda' para ver los comandos.")
