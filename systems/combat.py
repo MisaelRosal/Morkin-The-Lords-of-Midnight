@@ -143,8 +143,8 @@ class CombatSystem:
             crit_id, crit_desc = critical_table()
             self.log(f"CRITICO enemigo! (tirada < 5)")
             self.log(f"Efecto: {crit_desc[0]} - {crit_desc[1]}")
-            damage = self.enemy.take_damage(self.enemy.critical_damage)
-            self.log(f"Danio critico a ti: {damage} HP")
+            actual = self.player.take_damage(self.enemy.critical_damage)
+            self.log(f"Danio critico a ti: {actual} HP")
             if not self.player.is_alive():
                 return self.defeat()
             return True

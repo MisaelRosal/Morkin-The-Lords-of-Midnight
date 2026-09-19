@@ -35,6 +35,7 @@ class ActionSystem:
 
             return True, f"Viajas hacia el {direction}. Llegas a {location.name}.\n{location.description}"
         else:
+            self.fatigue.add_fatigue(self.player, 2)
             deviation = roll_d6()
             if deviation <= 3:
                 return True, f"Te pierdes en el camino. (Tirada: {roll})\nPermaneces en tu ubicacion actual."
