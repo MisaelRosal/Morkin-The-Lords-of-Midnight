@@ -1,0 +1,615 @@
+==================================================
+MORKIN ASCII ENGINE
+FLOW OF PLAY RULES v1.0
+==================================================
+
+--------------------------------------------------
+1. CICLO GENERAL DEL JUEGO
+--------------------------------------------------
+
+Cada día se divide en:
+
+- Morning
+- Afternoon
+- Evening
+- Night
+
+Cada bloque es un Quarter Of The Day.
+
+Por cada Quarter:
+
+1. Resolver clima
+2. Resolver condiciones
+3. Ejecutar una acción
+4. Resolver eventos resultantes
+5. Avanzar al siguiente Quarter
+
+Después de Night:
+
+- Nuevo día
+- Consumir raciones
+- Aplicar condiciones
+- Actualizar fatiga
+
+--------------------------------------------------
+2. WEATHER (CLIMA)
+--------------------------------------------------
+
+Al inicio de cada día:
+
+Tirar D10
+
+9-10
+Mismo clima que el día anterior.
+
+2-3
+Clear Weather
+
+Bonos:
+
++10 Orientation
++10 Camp
+
+4-8
+Normal Weather
+
+Sin modificadores.
+
+1
+Heavy Wind / Heavy Snow
+
+Efectos:
+
+-20 a todas las habilidades
+
+Realizar Endurance Check.
+
+Si se supera:
+
+penalizador reducido a:
+
+-10 a todas las habilidades.
+
+--------------------------------------------------
+3. CONDITIONS
+--------------------------------------------------
+
+HUNGRY
+
+Morkin:
+
++4 Fatigue por día sin comer.
+
+Compañero:
+
+2 días sin comer:
+
+- deja de ayudar
+- no combate
+
+4 días sin comer:
+
+- abandona el grupo
+
+Morkin:
+
+6 días sin comer:
+
+GAME OVER
+
+--------------------------------------------------
+
+EXHAUSTED
+
+Fatigue > Maximum Fatigue
+
+Consecuencia:
+
+- No puede Travel
+
+--------------------------------------------------
+
+POISONED
+
+Compañero:
+
+-2 HP diarios
+
+En enemigo:
+
+-1 HP por turno de combate
+
+Curación:
+
+- Antidote
+- First Aid + Bandage + Venomthorn
+
+No acumulable.
+
+--------------------------------------------------
+
+BLEEDING
+
+-4 HP por día
+
+Curación:
+
+First Aid exitoso
+
+No acumulable.
+
+--------------------------------------------------
+4. ICE FEAR
+--------------------------------------------------
+
+Representa el miedo que domina Midnight.
+
+Niveles conocidos:
+
+1
+2
+3
+
+Afecta:
+
+- reclutamiento de compañeros
+- eventos
+- ciertas tablas
+
+Reclutamiento:
+
+Ice Fear 1
+
+Falla con resultado D6 = 1
+
+Ice Fear 2
+
+Falla con:
+
+1-2
+
+Ice Fear 3
+
+Falla con:
+
+1-3
+
+Cualquier otro resultado:
+
+Compañero se une.
+
+--------------------------------------------------
+5. QUARTERS OF THE DAY
+--------------------------------------------------
+
+Mañana
+Tarde
+Atardecer
+Noche
+
+Cada Quarter permite:
+
+1 acción principal.
+
+--------------------------------------------------
+6. ACCIONES DISPONIBLES
+--------------------------------------------------
+
+APPROACH
+CAMP
+FISH
+FORAGE
+HUNT
+REST
+SEEK
+TRAVEL
+
+--------------------------------------------------
+7. APPROACH
+--------------------------------------------------
+
+Duración:
+
+1 Quarter
+
+Usada para:
+
+- Reclutar compañeros
+- Contactar NPCs
+
+Proceso:
+
+D6
+
+Consultar Ice Fear.
+
+Resultado exitoso:
+
+NPC se une al grupo.
+
+Resultado fallido:
+
+No puede volver a intentarse.
+
+--------------------------------------------------
+8. CAMP
+--------------------------------------------------
+
+Disponible normalmente de noche.
+
+Duración:
+
+1 Quarter
+
+Permite:
+
+- Reducir Fatigue
+- Recuperar HP
+- Realizar First Aid
+
+Bonificación:
+
+Con clima despejado:
+
++10 Camp
+
+--------------------------------------------------
+9. FISH
+--------------------------------------------------
+
+Requiere:
+
+Estar junto a un lago.
+
+Duración:
+
+1 Quarter
+
+Tirada:
+
+Fishing
+
+Éxito:
+
+Obtiene raciones.
+
+Fallo:
+
+No obtiene comida.
+
+--------------------------------------------------
+10. FORAGE
+--------------------------------------------------
+
+Buscar recursos.
+
+Duración:
+
+1 Quarter
+
+Tirada:
+
+Foraging
+
+Éxito:
+
+Obtener raciones u objetos.
+
+Fallo:
+
+Nada encontrado.
+
+--------------------------------------------------
+11. HUNT
+--------------------------------------------------
+
+Cazar animales.
+
+Duración:
+
+1 Quarter
+
+Tirada:
+
+Hunting
+
+Éxito:
+
+Obtiene raciones.
+
+Fallo:
+
+No obtiene presas.
+
+--------------------------------------------------
+12. REST
+--------------------------------------------------
+
+Duración:
+
+1 Quarter
+
+Beneficios:
+
+- Recuperación
+- Reducir Fatigue
+- First Aid
+
+--------------------------------------------------
+13. SEEK
+--------------------------------------------------
+
+Buscar localizaciones.
+
+Duración:
+
+1 Quarter
+
+Usado para:
+
+- Snowhalls
+- Ruins
+- Caverns
+- Special Sites
+
+Puede:
+
+- iniciar misiones
+- descubrir eventos
+- encontrar enemigos
+
+--------------------------------------------------
+14. TRAVEL
+--------------------------------------------------
+
+Movimiento principal del juego.
+
+Duración:
+
+1 Quarter
+
+Proceso:
+
+1. Elegir dirección
+
+2. Tirada Orientation
+
+Éxito:
+
+Mover al hex deseado
+
+Fallo:
+
+Tirar D6
+
+El resultado determina desviación
+o permanencia en la misma casilla.
+
+Después:
+
+Tirar evento.
+
+Si corresponde:
+
+Encuentro o evento.
+
+--------------------------------------------------
+15. FATIGUE
+--------------------------------------------------
+
+Generada por:
+
+- Viajar
+- Hambre
+- Eventos
+- Entorno
+
+Si supera Fatigue Max:
+
+Exhausted
+
+No puede Travel.
+
+Maximum Fatigue:
+
+STR / 5
+
+--------------------------------------------------
+16. EXPLORING SNOWHALLS
+--------------------------------------------------
+
+Cuando llegas a una Snowhall:
+
+1. Usar Seek
+
+2. Tirar D10
+
+Consultar Seek Table
+
+3. Tirar D6
+
+1-2
+
+Snowhall habitada
+
+Combatir.
+
+Usar:
+
+Snowhall Encounter Table
+
+Si ganas:
+
+Snowhall Findings Table
+
+3-6
+
+No habitada
+
+Resolver hallazgos.
+
+--------------------------------------------------
+17. EXPLORING CAVERNS & RUINS
+--------------------------------------------------
+
+Usar acción Seek.
+
+Consume:
+
+Todo el Quarter.
+
+--------------------------------------------------
+
+SECUENCIA
+
+1. Obtener Quest
+
+Tirar D66 en Seek Table.
+
+--------------------------------------------------
+
+2. Crear Entrance Room
+
+La entrada no contiene nada.
+
+--------------------------------------------------
+
+3. Determinar puertas/pasajes
+
+D6
+
+Generar nuevas conexiones.
+
+--------------------------------------------------
+
+4. Entrar a nueva habitación
+
+Generar:
+
+- Forma
+- Salidas
+- Secret doors
+- Escaleras
+
+--------------------------------------------------
+
+5. Exploración
+
+Tirar D66
+
+Ruin & Cavern Exploration Table
+
+61-66
+
+Quest Room encontrada
+
+--------------------------------------------------
+
+6. Habitaciones exploradas
+
+Al volver a entrar:
+
+D10
+
+Resultado 1
+
+Encuentro.
+
+--------------------------------------------------
+
+7. Quest Room
+
+Contiene:
+
+- Objeto
+- NPC
+- Monstruo
+- Objetivo principal
+
+Cuando se completa:
+
+Regresar a la entrada.
+
+Misión completada.
+
+--------------------------------------------------
+18. COMPANIONS
+--------------------------------------------------
+
+Los compañeros:
+
+- No realizan acciones individuales.
+- Aportan bonificaciones pasivas.
+
+--------------------------------------------------
+
+Al reclutarlos:
+
+Añadir sus bonuses a:
+
+- Melee
+- Defence
+- Perception
+- Otras Skills
+
+--------------------------------------------------
+
+Comida
+
+Consumen Rations diariamente.
+
+Excepción:
+
+Farflame
+
+No consume comida.
+
+--------------------------------------------------
+
+Vida
+
+Pueden recibir daño.
+
+Pueden curarse mediante:
+
+- Rest
+- Camp
+- First Aid
+
+--------------------------------------------------
+
+Fatigue
+
+Sólo Morkin usa Fatigue.
+
+--------------------------------------------------
+
+Despedir compañero
+
+Permitido.
+
+Consecuencia:
+
+No puede reclutarse nuevamente.
+
+==================================================
+ARQUITECTURA RECOMENDADA
+==================================================
+
+Turno
+└── Quarter
+    ├── Weather
+    ├── Conditions
+    ├── Action
+    ├── Event
+    └── End Quarter
+
+Día
+└── 4 Quarters
+
+Mundo
+└── Travel
+└── Seek
+└── Encounter
+└── Quest
+└── Combat
